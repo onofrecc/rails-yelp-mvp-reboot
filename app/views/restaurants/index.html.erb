@@ -1,0 +1,7 @@
+<h1>List of all restaurants in our database</h1>
+<br>
+<ul>
+  <% @restaurants.each do |restaurant| %>
+    <li><%= restaurant.name.capitalize  %></li>
+  <% end %>
+</ul>
