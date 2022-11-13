@@ -1,6 +1,21 @@
 <h1>Details of your selected restaurant</h1>
 <br>
-<h2>Name: <%= @restaurant.name %></h2>
-<p>Address: <%= @restaurant.address %></p>
-<p>Category: <%= @restaurant.category %></p>
+<p>Name: <%= @restaurant.name.capitalize %></p>
+<p>Address: <%= @restaurant.address.capitalize %></p>
+<p>Category: <%= @restaurant.category.capitalize %></p>
 <p>Phone Number: <%= @restaurant.phone_number %></p>
+<br>
+<h2>Create a review for the restaurant <%= @restaurant.name  %></h2>
+<%= render "shared/form_review" %>
+<br>
+<h2>Read all the reviews for the restaurant <%= @restaurant.name  %></h2>
+<div class="list-group">
+  <% @restaurant.reviews.each do |review| %>
+    <li class="list-group-item">
+      <p><%= review.content %></p>
+    </li>
+  <% end %>
+</div>
+
+<%# BEFORE EMBEDDING THE FORM IN THE RESTAURANT SHOW %>
+<%# <%= link_to "Create review", new_restaurant_review_path(@restaurant), class: "btn btn-primary"%>

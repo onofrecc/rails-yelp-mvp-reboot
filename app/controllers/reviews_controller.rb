@@ -1,8 +1,9 @@
 class ReviewsController < ApplicationController
-  def new
-    @review = Review.new
-    @restaurant = Restaurant.find(params[:restaurant_id])
-  end
+  # BEFORE EMBEDDING THE FORM IN THE RESTAURANT SHOW
+  # def new
+  #   @review = Review.new
+  #   @restaurant = Restaurant.find(params[:restaurant_id])
+  # end
 
   def create
     @restaurant = Restaurant.find(params[:restaurant_id])
@@ -12,7 +13,10 @@ class ReviewsController < ApplicationController
       redirect_to restaurant_path(@restaurant)
       # redirect_to restaurants_path
     else
-      render :new, status: :unprocessable_entity
+      render 'restaurants/show', status: :unprocessable_entity
+
+      # <%# BEFORE EMBEDDING THE FORM IN THE RESTAURANT SHOW %>
+      # render :new, status: :unprocessable_entity
     end
   end
 

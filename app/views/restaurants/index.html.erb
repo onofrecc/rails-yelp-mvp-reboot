@@ -2,6 +2,6 @@
 <br>
 <ul>
   <% @restaurants.each do |restaurant| %>
-    <li><%= restaurant.name.capitalize  %></li>
+    <li><%= link_to restaurant.name.capitalize, restaurant_path(restaurant)  %></li>
   <% end %>
 </ul>
